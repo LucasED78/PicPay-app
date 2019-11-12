@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:picpay_test/contact_list/contact_app.dart';
+import 'package:picpay_test/app/contact_list/contact_app.dart';
+import 'package:picpay_test/app/contact_list/service/contact_provider.dart';
+import 'package:picpay_test/app/credit_card/services/credit_card_provider.dart';
+import 'package:picpay_test/core/picpay_theme.dart';
+import 'package:provider/provider.dart';
 
 void main() => runApp(
-  MaterialApp(
-    theme: ThemeData(
-      primaryColor: Colors.black,
-      accentColor: Color.fromRGBO(17, 199, 111, 1),
-      textTheme: TextTheme(
-        title: TextStyle(color: Colors.white),
-        subtitle: TextStyle(color: Colors.grey),
-        button: TextStyle(
-          color: Color.fromRGBO(17, 199, 111, 1),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<CreditCardProvider>(
+          builder: (_) => CreditCardProvider(),
+        ),
+        ChangeNotifierProvider<ContactProvider>(
+          builder: (_) => ContactProvider(),
         )
-      ),
-      inputDecorationTheme: InputDecorationTheme(
-        focusColor: Colors.white,
-        labelStyle: TextStyle(color: Colors.grey),
-      ),
-      hintColor: Colors.grey,
+      ],
+      child: MaterialApp(
+        theme: PicPayTheme.theme,
+        home: PicPayApp()
+      )
     ),
-    home: PicPayApp(),
-  )
 );
 
 class PicPayApp extends StatelessWidget {
