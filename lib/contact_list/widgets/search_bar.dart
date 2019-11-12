@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:picpay_test/contact_list/service/contact_provider.dart';
+import 'package:provider/provider.dart';
 
 class SearchBar extends StatefulWidget {
   @override
@@ -8,6 +10,8 @@ class SearchBar extends StatefulWidget {
 class _SearchBarState extends State<SearchBar> {
   @override
   Widget build(BuildContext context) {
+    ContactProvider _contactProvider = Provider.of(context);
+
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: TextField(
@@ -21,6 +25,9 @@ class _SearchBarState extends State<SearchBar> {
         style: TextStyle(
           color: Colors.white
         ),
+        onChanged: (text){
+          _contactProvider.searchContact(text);
+        },
       ),
     );
   }
