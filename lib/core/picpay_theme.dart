@@ -14,7 +14,8 @@ class PicPayTheme {
           subtitle: TextStyle(color: Colors.grey),
           button: TextStyle(
             color: Color.fromRGBO(17, 199, 111, 1),
-          )
+          ),
+          display1: TextStyle(color: Colors.white, fontSize: 25)
       ),
       inputDecorationTheme: InputDecorationTheme(
         focusColor: Colors.white,

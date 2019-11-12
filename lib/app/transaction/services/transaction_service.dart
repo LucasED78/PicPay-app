@@ -8,18 +8,18 @@ import 'package:picpay_test/app/transaction/model/transaction.dart';
 
 class TransactionService {
 
-  Future payContact(Contact contact, CreditCard creditCard, Transaction transaction) async{
+  Future<Transaction> payContact(CreditCard creditCard, Transaction transaction) async{
     Response response = await Dio().post("http://careers.picpay.com/tests/mobdev/transaction",
       data: {
         "card_number": creditCard.cardNumber,
         "cvv": creditCard.cvv,
         "value": transaction.amount,
         "expiry_date": creditCard.expireDate,
-        "destination_user_id": contact.id
+        "destination_user_id": transaction.contact.id
       }
     );
 
-    return response.data;
+    return Transaction.fromJSON(json.decode(response.data));
   }
 
 }

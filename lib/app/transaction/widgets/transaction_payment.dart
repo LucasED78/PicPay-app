@@ -4,6 +4,7 @@ import 'package:picpay_test/app/credit_card/services/credit_card_provider.dart';
 import 'package:picpay_test/app/transaction/model/transaction.dart';
 import 'package:picpay_test/app/transaction/services/transaction_service.dart';
 import 'package:picpay_test/app/transaction/widgets/contact_selected.dart';
+import 'package:picpay_test/app/transaction/widgets/payment_confirmed.dart';
 import 'package:picpay_test/core/picpay_scaffold.dart';
 import 'package:picpay_test/core/picpay_theme.dart';
 import 'package:picpay_test/core/widgets/common_button.dart';
@@ -66,14 +67,24 @@ class _TransactionPaymentState extends State<TransactionPayment> {
             onPressed: () async{
               Transaction _transaction = Transaction(
                   amount: double.parse(_amountController.text),
-                  destinationId: _contactProvider.selectedContact.id
+                  contact: _contactProvider.selectedContact
               );
 
-              print(await TransactionService().payContact(
-                  _contactProvider.selectedContact,
-                  _creditCardProvider.card,
-                  _transaction
-              ));
+              Transaction data = await TransactionService().payContact(
+                _creditCardProvider.card,
+                _transaction
+              );
+
+              showModalBottomSheet(
+                context: context,
+                isScrollControlled: true,
+                builder: (context){
+                  return Container(
+                    height: 600,
+                    child: PaymentConfirmed(data),
+                  );
+                }
+              );
 
             },
           )
