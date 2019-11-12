@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:picpay_test/contact_list/model/contact.dart';
-import 'package:picpay_test/contact_list/service/contact_provider.dart';
-import 'package:picpay_test/credit_card/credit_card_app.dart';
+import 'package:picpay_test/app/contact_list/model/contact.dart';
+import 'package:picpay_test/app/contact_list/service/contact_provider.dart';
+import 'package:picpay_test/app/credit_card/credit_card_app.dart';
 import 'package:provider/provider.dart';
 
 class ContactList extends StatelessWidget {
@@ -31,6 +31,7 @@ class ContactList extends StatelessWidget {
             ),
           ),
           onTap: (){
+            _contactProvider.selectedContact = _contacts[index];
             Navigator.push(context, MaterialPageRoute(
               builder: (context) => CreditCardApp()
             ));

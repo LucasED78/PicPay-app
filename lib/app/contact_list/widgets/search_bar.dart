@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:picpay_test/contact_list/service/contact_provider.dart';
+import 'package:picpay_test/app/contact_list/service/contact_provider.dart';
 import 'package:provider/provider.dart';
 
 class SearchBar extends StatefulWidget {

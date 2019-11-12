@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:picpay_test/contact_list/model/contact.dart';
+import 'package:picpay_test/app/contact_list/model/contact.dart';
 
 class ContactService{
 
