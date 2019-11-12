@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class CreditCard {
   String cardNumber;
-  double value;
+  String holder;
   int cvv;
   String expireDate;
 
   CreditCard({
     @required this.cardNumber,
-    @required this.value,
+    @required this.holder,
     @required this.cvv,
     @required this.expireDate
   });

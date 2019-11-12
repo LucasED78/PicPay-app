@@ -8,7 +8,10 @@ void main() => runApp(
       accentColor: Color.fromRGBO(17, 199, 111, 1),
       textTheme: TextTheme(
         title: TextStyle(color: Colors.white),
-        subtitle: TextStyle(color: Colors.grey)
+        subtitle: TextStyle(color: Colors.grey),
+        button: TextStyle(
+          color: Color.fromRGBO(17, 199, 111, 1),
+        )
       ),
       inputDecorationTheme: InputDecorationTheme(
         focusColor: Colors.white,
