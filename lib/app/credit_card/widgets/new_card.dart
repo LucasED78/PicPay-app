@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:picpay_test/core/picpay_scaffold.dart';
-import 'package:picpay_test/credit_card/widgets/add_new_card.dart';
-import 'package:picpay_test/credit_card/widgets/credit_card_button.dart';
+import 'package:picpay_test/app/credit_card/widgets/add_new_card.dart';
+import 'package:picpay_test/core/widgets/common_button.dart';
 
 class NewCard extends StatelessWidget {
   @override
@@ -20,7 +20,7 @@ class NewCard extends StatelessWidget {
             "Para fazer pagamentos para outras pessoas você precisa cadastrar um cartão de crédito pessoal.",
               style: TextStyle(color: Colors.grey, fontSize: 20), textAlign: TextAlign.center,
           ),
-          CreditCardButton(text: "Cadastrar cartão", onPressed: () {
+          CommonButton(text: "Cadastrar cartão", onPressed: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (context) => AddNewCard()
             ));

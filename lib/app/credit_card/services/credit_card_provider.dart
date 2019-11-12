@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:picpay_test/credit_card/model/credit_card.dart';
+import 'package:picpay_test/app/credit_card/model/credit_card.dart';
 
 class CreditCardProvider with ChangeNotifier {
 
